@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module configVersion="1.2">
+
+	<!-- Module Properties -->
+	<id>${project.parent.artifactId}</id>
+	<name>${project.parent.name}</name>
+	<version>${project.parent.version}</version>
+	<package>${project.parent.groupId}.${project.parent.artifactId}</package>
+	<author>tgreensweig</author>
+	<description>
+		${project.parent.description}
+	</description>
+	<updateURL>https://modules.openmrs.org/modules/download/${project.parent.artifactId}/update.rdf</updateURL>
+	<require_version>${openMRSVersion}</require_version>
+	<!-- / Module Properties -->
+
+    <!-- Extensions -->
+    <extension>
+        <point>org.openmrs.patientDashboardTab</point>
+        <class>${project.parent.groupId}.${project.parent.artifactId}.filebrowserExt</class>
+    </extension>
+
+    <!-- Required Privileges-->
+    <privilege>
+        <name>Patient Dashboard - File Browser</name>
+        <description>Allows user to view file-system</description>
+    </privilege>
+    <!--Required Privileges -->
+
+	<!-- Global Properties -->
+	<globalProperty>
+		<property>filebrowser.url</property>
+		<description>This is the URL that the iframe of the Old Patient Data module points to, the patient ID will be appended.</description>
+		<defaultValue>http://www.google.com/</defaultValue>
+	</globalProperty>
+	<globalProperty>
+		<property>filebrowser.patientfilepath</property>
+		<description>This is the local path containing the folders of patient files</description>
+		<defaultValue>http://openmrs/SDL.php?cwdRelPath=patientfiles/</defaultValue>
+	</globalProperty>	
+	<globalProperty>
+		<property>filebrowser.tabname</property>
+		<description>This is the name of the tab to be displayed on the patient dashboard</description>
+		<defaultValue>File Browser</defaultValue>
+	</globalProperty>	
+		
+	<!-- Module Activator -->
+	<activator>${project.parent.groupId}.${project.parent.artifactId}.FileBrowserActivator</activator>
+	
+	
+	<!-- Adds link to admin page 
+	<extension>
+		<point>org.openmrs.admin.list</point>
+		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.AdminList</class>
+	</extension>
+	-->
+	
+	<!-- Maps hibernate file's, if present -->
+	<mappingFiles>
+				
+		FileBrowser.hbm.xml
+				
+	</mappingFiles>
+
+	<!-- Internationalization -->
+	<!-- All message codes should start with ${project.parent.artifactId}. -->
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<messages>
+		<lang>fr</lang>
+		<file>messages_fr.properties</file>
+	</messages>
+	<messages>
+		<lang>es</lang>
+		<file>messages_es.properties</file>
+	</messages>
+	<!-- /Internationalization -->
+
+</module>
+
