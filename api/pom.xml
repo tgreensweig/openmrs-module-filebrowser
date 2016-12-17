@@ -35,6 +35,13 @@
 		</dependency>
 		
 		<dependency>
+			<groupId>org.openmrs.api</groupId>
+			<artifactId>openmrs-api</artifactId>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.openmrs.web</groupId>
 			<artifactId>openmrs-web</artifactId>
 			<type>jar</type>
@@ -43,9 +50,16 @@
 		<dependency>
 			<groupId>org.openmrs.test</groupId>
 			<artifactId>openmrs-test</artifactId>
-			<type>jar</type>
+			<type>pom</type>
 		</dependency>
 				
+		<dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>legacyui-omod</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
+        
 		<!-- End OpenMRS core -->
 		
 	</dependencies>
